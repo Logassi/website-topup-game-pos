@@ -4,7 +4,7 @@ import LowerContainer from "./components/footer.lower.container";
 
 export default function Footer() {
   return (
-    <div>
+    <div className="bg-black text-white">
       <UpperContainer />
       <LowerContainer />
     </div>
