@@ -1,7 +1,7 @@
 import axiosInstance from "@/libs/axios";
 import { create } from "zustand";
 
-interface GameItem {
+export interface GameItem {
   id: number;
   name: string;
   price: number;
@@ -39,7 +39,16 @@ export const useGameStore = create<GameStore>((set) => ({
       const response = await axiosInstance.get("/products");
       //   console.log(response);
 
-      set({ games: response.data, loading: false });
+      // Format prices and update the store data
+      const formattedGames = response.data.map((game: Game) => ({
+        ...game,
+        items: game.items.map((item: GameItem) => ({
+          ...item,
+          price: `Rp${item.price.toLocaleString()}`, // Ensure price is formatted with currency
+        })),
+      }));
+
+      set({ games: formattedGames, loading: false });
     } catch (error: any) {
       set({
         error: error.response?.data?.message || "Failed to fetch games data",

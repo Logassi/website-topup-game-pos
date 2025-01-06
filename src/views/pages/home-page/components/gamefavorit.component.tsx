@@ -1,6 +1,7 @@
 "use client";
 
 import { useGameStore } from "@/stores/game.data.store";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 // const games = [
@@ -13,6 +14,7 @@ import { useEffect } from "react";
 
 export default function GameFavoritesComponent() {
   const { games, loading, error, fetchGames } = useGameStore();
+  const router = useRouter();
 
   useEffect(() => {
     fetchGames();
@@ -33,8 +35,11 @@ export default function GameFavoritesComponent() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {games.map((game) => (
             <div
+              onClick={() => {
+                router.push(`/product-detail/${game.id.toLowerCase()}`);
+              }}
               key={game.id}
-              className="bg-gray-700 p-4 rounded-lg text-center"
+              className="bg-gray-700 p-4 rounded-lg text-center hover:bg-gray-900"
             >
               <img
                 src={game.image}
