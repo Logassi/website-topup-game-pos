@@ -25,19 +25,10 @@ export default function ProductDetailPageViewSlug({
     (game) => game.id.toLowerCase() === slug.toLowerCase()
   );
 
-  if (!game) {
-    return <div>Loading or Game not found...</div>;
-  }
-
   return (
     <div>
-      <Banner
-        name={game.name}
-        image={game.image}
-        description={game.description}
-        publisher={game.publisher}
-      />
-      <PickProduct products={game.items} />
+      <Banner game={game} />
+      <PickProduct game={game} />
       <FormUserData />
       <PickPaymentMethod />
     </div>

@@ -1,7 +1,10 @@
 const paymentMethods = [
   { id: 1, name: "QRIS", image: "/images/qris.png" },
   { id: 2, name: "Gopay", image: "/images/gopay.png" },
-  { id: 3, name: "OVO", image: "/images/ovo.png" },
+  { id: 3, name: "OVO", image: "/images/ovo.jpg" },
+  { id: 4, name: "Dana", image: "/images/dana.png" },
+  { id: 5, name: "ShopeePay", image: "/images/shopeepay.png" },
+  { id: 6, name: "LinkAja", image: "/images/linkaja.png" },
 ];
 
 export default function PickPaymentMethod() {
@@ -15,7 +18,7 @@ export default function PickPaymentMethod() {
           {paymentMethods.map((method) => (
             <div
               key={method.id}
-              className="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition"
+              className="bg-gray-800 shadow-md rounded-lg p-4 text-center hover:shadow-lg transition"
             >
               <img
                 src={method.image}
