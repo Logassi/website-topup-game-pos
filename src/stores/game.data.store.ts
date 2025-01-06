@@ -22,14 +22,23 @@ export interface Game {
 
 interface GameStore {
   games: Game[];
+  tempGame: Game | undefined;
+  tempItem: GameItem | undefined;
+  selectedItems: GameItem[];
   loading: boolean;
   error: string | null;
   fetchGames: () => Promise<void>;
+  setSelectedItems: (item: GameItem) => void;
+  setTempGame: (game: Game) => void;
+  setTempItem: (item: GameItem) => void;
   //   fetchInvoice: () => Promise<void>;
 }
 
 export const useGameStore = create<GameStore>((set) => ({
   games: [],
+  tempGame: undefined,
+  tempItem: undefined,
+  selectedItems: [],
   loading: false,
   error: null,
 
@@ -44,7 +53,7 @@ export const useGameStore = create<GameStore>((set) => ({
         ...game,
         items: game.items.map((item: GameItem) => ({
           ...item,
-          price: `Rp${item.price.toLocaleString()}`, // Ensure price is formatted with currency
+          // price: `Rp${item.price.toLocaleString()}`, // Ensure price is formatted with currency
         })),
       }));
 
@@ -56,6 +65,18 @@ export const useGameStore = create<GameStore>((set) => ({
       });
     }
   },
+
+  setSelectedItems: (item: GameItem) =>
+    set((state) => ({
+      selectedItems: [...state.selectedItems, item], // Add item to the selectedItems array
+    })),
+
+  setTempItem: (item: GameItem) => set({ tempItem: item }),
+
+  setTempGame: (game: Game) => set({ tempGame: game }),
+  // storeItems: async (){
+
+  // }
 
   //   fetchInvoice: async () => {
   //     set({ loading: true, error: null });

@@ -1,10 +1,19 @@
 import PendingPaymentView from "@/views/pages/pending-payment-page";
+import PendingPaymentViewSlug from "@/views/pages/pending-payment-page-slug";
 import React from "react";
 
-export default function PendingPayment() {
+interface PendingPaymentPageProps {
+  params: { slug: string };
+}
+
+export default async function PendingPayment({
+  params,
+}: PendingPaymentPageProps) {
+  const { slug } = await params;
+
   return (
     <div>
-      <PendingPaymentView />
+      <PendingPaymentViewSlug slug={slug} />
     </div>
   );
 }

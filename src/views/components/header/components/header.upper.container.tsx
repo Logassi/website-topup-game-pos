@@ -1,11 +1,21 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 // components/header.upper.container.tsx
 import React from "react";
 
 export default function UpperContainer() {
+  const router = useRouter();
+
   return (
     <div className="flex items-center justify-between  px-6 py-3 text-white">
       {/* Logo */}
-      <div className="flex items-center gap-2">
+      <div
+        onClick={() => {
+          router.push("/");
+        }}
+        className="flex items-center gap-2"
+      >
         <img
           src="/logo.png" // Replace with your logo's file path
           alt="GameManiac Logo"
