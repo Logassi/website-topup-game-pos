@@ -1,5 +1,10 @@
 import React from "react";
+import InvoiceForm from "./components/invoice.form.component";
 
 export default function InvoicePageView() {
-  return <div>InvoicePageView</div>;
+  return (
+    <div>
+      <InvoiceForm />
+    </div>
+  );
 }
