@@ -1,14 +1,12 @@
-import ProductDetailPageView from "@/views/pages/product-detail-page";
+import { ProductDetailPageProps } from "@/types/product-detail";
 import ProductDetailPageViewSlug from "@/views/pages/product-detail-page-slug";
 import React from "react";
 
-interface ProductDetailPageProps {
-  params: { slug: string };
-}
-
 export default async function ProductDetail({
   params,
-}: ProductDetailPageProps) {
+}: {
+  params: Promise<ProductDetailPageProps>;
+}) {
   const { slug } = await params;
 
   return (
