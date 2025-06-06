@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Timer from "./components/timer.component";
 import TujuanPembayaran from "./components/tujuan.pembayaran.component";
 import DetailPemesanan from "./components/detail.pemesanan.component";

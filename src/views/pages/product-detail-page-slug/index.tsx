@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Banner from "./components/banner.component";
 import PickProduct from "./components/pick.product.component";
 import PickPaymentMethod from "./components/pick.paymentmethod.component";

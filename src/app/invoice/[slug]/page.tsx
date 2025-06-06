@@ -7,7 +7,7 @@ type Props = {
   };
 };
 
-export default function Invoice({ params }: Props) {
+export default function Page({ params }: Props) {
   const { slug } = params;
 
   return (
