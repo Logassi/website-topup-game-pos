@@ -1,8 +1,13 @@
-import { InvoiceProps } from "@/types/invoice";
 import InvoicePageView from "@/views/pages/invoice-page";
 import React from "react";
 
-export default function Invoice({ params }: { params: { slug: string } }) {
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export default function Invoice({ params }: Props) {
   const { slug } = params;
 
   return (

@@ -1,12 +1,13 @@
-import { ProductDetailPageProps } from "@/types/product-detail";
 import ProductDetailPageViewSlug from "@/views/pages/product-detail-page-slug";
 import React from "react";
 
-export default function ProductDetail({
-  params,
-}: {
-  params: { slug: string };
-}) {
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export default function ProductDetail({ params }: Props) {
   const { slug } = params;
 
   return (
