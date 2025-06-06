@@ -10,7 +10,7 @@ import React from "react";
 export default async function PendingPayment({
   params,
 }: {
-  params: Promise<PendingPaymentPageProps>;
+  params: PendingPaymentPageProps;
 }) {
   const { slug } = await params;
 
