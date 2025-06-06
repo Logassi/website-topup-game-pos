@@ -5,14 +5,9 @@ import PickProduct from "./components/pick.product.component";
 import PickPaymentMethod from "./components/pick.paymentmethod.component";
 import FormUserData from "./components/form.userdata.component";
 import { useGameStore } from "@/stores/game.data.store";
+import { SlugProps } from "@/types/props";
 
-interface ProductDetailPageViewProps {
-  slug: string;
-}
-
-export default function ProductDetailPageViewSlug({
-  slug,
-}: ProductDetailPageViewProps) {
+export default function ProductDetailPageViewSlug({ slug }: SlugProps) {
   const { games, fetchGames } = useGameStore();
 
   useEffect(() => {

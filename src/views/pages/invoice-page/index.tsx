@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect } from "react";
 import InvoiceForm from "./components/invoice.form.component";
-import { InvoiceProps } from "@/types/invoice";
 import { useGameStore } from "@/stores/game.data.store";
+import { SlugProps } from "@/types/props";
 
-export default function InvoicePageView({ slug }: InvoiceProps) {
+export default function InvoicePageView({ slug }: SlugProps) {
   const { tempGame, tempItem } = useGameStore();
 
   const item = tempItem;

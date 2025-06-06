@@ -6,11 +6,9 @@ import DetailPemesanan from "./components/detail.pemesanan.component";
 import { useGameStore } from "@/stores/game.data.store";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
-import { PendingPaymentViewProps } from "@/types/pending-payment";
+import { SlugProps } from "@/types/props";
 
-export default function PendingPaymentViewSlug({
-  slug,
-}: PendingPaymentViewProps) {
+export default function PendingPaymentViewSlug({ slug }: SlugProps) {
   // {params}: {params: Promise<PendingPaymentViewProps>}
   const { tempGame, tempItem } = useGameStore();
   const router = useRouter();
