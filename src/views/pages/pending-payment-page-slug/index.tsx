@@ -6,14 +6,12 @@ import DetailPemesanan from "./components/detail.pemesanan.component";
 import { useGameStore } from "@/stores/game.data.store";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
-
-interface PendingPaymentViewProps {
-  slug: string;
-}
+import { PendingPaymentViewProps } from "@/types/pending-payment";
 
 export default function PendingPaymentViewSlug({
   slug,
 }: PendingPaymentViewProps) {
+  // {params}: {params: Promise<PendingPaymentViewProps>}
   const { tempGame, tempItem } = useGameStore();
   const router = useRouter();
 
@@ -32,7 +30,7 @@ export default function PendingPaymentViewSlug({
         timer: 3000,
         showConfirmButton: false,
       }).then(() => {
-        router.push("/invoice");
+        router.push(`/invoice/${item?.id}`);
       });
     }, 5000);
 

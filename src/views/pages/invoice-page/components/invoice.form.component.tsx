@@ -1,9 +1,22 @@
 "use client";
+import { Game, GameItem } from "@/stores/game.data.store";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export default function InvoiceForm() {
+interface InvoiceFormProps {
+  item: GameItem | undefined;
+  game: Game | undefined;
+}
+
+export default function InvoiceForm({ item, game }: InvoiceFormProps) {
   const router = useRouter();
+
+  if (!item) {
+    return <div>Loading item...</div>;
+  }
+
+  const itemFee = item.price * (12 / 100);
+  const totalPrice = itemFee + item.price;
 
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-6">
@@ -29,8 +42,8 @@ export default function InvoiceForm() {
           />
           {/* Game Name */}
           <div>
-            <h2 className="text-lg font-bold">Mobile Legends Bang Bang</h2>
-            <p className="text-gray-400 text-sm">Moonton</p>
+            <h2 className="text-lg font-bold">{game?.name}</h2>
+            <p className="text-gray-400 text-sm">{game?.publisher}</p>
           </div>
         </div>
 
@@ -38,16 +51,16 @@ export default function InvoiceForm() {
         <div className="bg-gray-700 p-4 rounded-md text-sm mb-4">
           <div className="grid grid-cols-2 gap-y-2">
             <div>
-              <span className="font-bold">Item:</span> 5 Diamond
+              <span className="font-bold">Item:</span> {item?.name}
             </div>
             <div className="text-right">
-              <span className="font-bold">Harga:</span> Rp 1,000,-
+              <span className="font-bold">Harga:</span> {item?.price}
             </div>
             <div>
               <span className="font-bold">USER ID:</span> 924936253
             </div>
             <div className="text-right">
-              <span className="font-bold">Fee:</span> Rp 64,-
+              <span className="font-bold">Fee:</span> {itemFee}
             </div>
             <div>
               <span className="font-bold">ZONE ID:</span> 12666
@@ -68,7 +81,7 @@ export default function InvoiceForm() {
         {/* Total Payment */}
         <div className="bg-green-500 text-black p-4 rounded-md flex justify-between items-center mb-6">
           <p className="font-bold">Total Pembayaran:</p>
-          <p className="text-lg font-extrabold">Rp 1,085,-</p>
+          <p className="text-lg font-extrabold">{totalPrice}</p>
         </div>
 
         {/* Review Section */}
