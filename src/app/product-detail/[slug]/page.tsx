@@ -5,7 +5,7 @@ import React from "react";
 export default async function ProductDetail({
   params,
 }: {
-  params: ProductDetailPageProps;
+  params: { slug: string };
 }) {
   const { slug } = await params;
 
