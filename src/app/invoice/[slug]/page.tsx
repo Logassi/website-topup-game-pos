@@ -7,7 +7,7 @@ type Props = {
   };
 };
 
-export default async function Page({ params }: Props) {
+export default function Page({ params }: Props) {
   // const { slug } = await params;
 
   return (
