@@ -2,13 +2,11 @@ import InvoicePageView from "@/views/pages/invoice-page";
 import React from "react";
 
 type Props = {
-  params: {
-    slug: string;
-  };
+  slug: string;
 };
 
-export default function Page({ params }: Props) {
-  const { slug } = params;
+export default async function Page({ params }: { params: Promise<Props> }) {
+  const { slug } = await params;
 
   return (
     <div>
