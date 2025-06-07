@@ -1,18 +1,19 @@
+import { SlugProps } from "@/types/props";
 import InvoicePageView from "@/views/pages/invoice-page";
 import React from "react";
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
+// type Props = {
+//   params: {
+//     slug: string;
+//   };
+// };
 
-export default function Page({ params }: Props) {
-  // const { slug } = await params;
+export default async function Page({ params }: { params: Promise<SlugProps> }) {
+  const { slug } = await params;
 
   return (
     <div>
-      <InvoicePageView slug={params.slug} />
+      <InvoicePageView slug={slug} />
     </div>
   );
 }
